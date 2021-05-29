@@ -9,7 +9,13 @@ class LivreController extends Controller
 {
     public function index(){
 
-        $livres = Livre::all();
+        //$livres = Livre::all();
+        //$livres = Livre::find(['id'=>'1']);
+        //$livres = Livre::where('titre','java')->get();
+        /* $livres = Livre::where('titre','laravel')
+        ->orderBy('id')
+        ->take(3)
+        ->get(); */
         //dd($livres);
 
         return view('pages.home',compact('livres'));
