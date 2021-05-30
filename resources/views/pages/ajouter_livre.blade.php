@@ -5,6 +5,7 @@
     <div class="form-group">
       <label for="exampleFormControlInput1">Titre Livre</label>
       <input type="text" name="titre" value="{{old('titre')}}" class="form-control">
+      
     </div>
 
     @error('titre')
@@ -14,8 +15,11 @@
     <div class="form-group">
         <label for="sel1">Choisir Categorie :</label>
         <select class="form-control" name="category_id">
-          <option value="informatique">Informatique</option>
-          <option value="science">Science</option>
+
+          @foreach ($categories as $categorie )
+          <option value="{{ $categorie->id }}">{{ $categorie->nom_categorie }}</option>
+          @endforeach
+
         </select>
       </div>
     <div class="form-group">

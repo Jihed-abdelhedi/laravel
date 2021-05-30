@@ -21,11 +21,14 @@
     <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-10 mx-auto">
-        @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-      @endif
+       
+     
+        @foreach (['danger', 'warning', 'success'] as $msg)
+        @if (Session::has($msg))
+          <div class="alert alert-{{ $msg }}">{{ Session::get($msg) }}</div>
+        @endif
+        @endforeach
+      
 
      <!-- @if ($errors->any())
         <div class="alert alert-danger">
