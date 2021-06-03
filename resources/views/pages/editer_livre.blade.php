@@ -1,13 +1,11 @@
 @extends('master')
 @section('content')
-@if ($categories->count()=== 0 )
-      <div class="alert alert-warning">Liste categories est vide , Ajouter une categorie !</div>
-      @endif
-<form method="POST" action="{{ route('post_ajouter_livre') }}">
+
+<form method="POST" action="{{ route('post_editer_livre',$livre->id) }}">
     @csrf
     <div class="form-group">
       <label for="exampleFormControlInput1">Titre Livre</label>
-      <input type="text" name="titre" value="{{old('titre')}}" class="form-control">
+      <input type="text" name="titre" value="{{old('titre',$livre->titre)}}" class="form-control">
       
     </div>
 
@@ -24,7 +22,9 @@
           <option value="">choisir une categorie</option>
          
           @foreach ($categories as $categorie )
-          <option value="{{ $categorie->id }}" {{ old('category_id') == $categorie->id ? 'selected' : '' }}>{{ $categorie->nom_categorie }}</option>
+          <option value="{{ $categorie->id }}" 
+            @if ( (old('category_id') && old('category_id') == $categorie->id ) || ($livre->category_id == $categorie->id) && !old('category_id')) selected     
+            @endif >{{ $categorie->nom_categorie }}</option>
 
       
           @endforeach
@@ -38,7 +38,7 @@
   
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Description</label>
-      <textarea name="description"  class="form-control"  rows="3">{{old('description')}}</textarea>
+      <textarea name="description"  class="form-control"  rows="3">{{old('description',$livre->description)}}</textarea>
     </div>
 
     @error('description')
@@ -46,7 +46,7 @@
    @enderror
    
     <div class="form-group">
-    <input type="submit" class="btn btn-primary" value="Ajouter">
+    <input type="submit" class="btn btn-primary" value="Editer">
     </div>
   </form>
 @endsection

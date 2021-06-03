@@ -20,4 +20,33 @@
     <input type="submit" class="btn btn-primary" value="Ajouter">
     </div>
   </form>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom Categorie</th>
+      <th scope="col">Nombre de livres</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+
+    @foreach ($categories as $categorie )
+    <tr>
+
+      <th scope="row">{{ $categorie->id }}</th>
+      <td>{{ $categorie->nom_categorie }}</td>
+      <td>{{ $categorie->livres->count() }}</td>
+     
+     
+    </tr>
+    @endforeach
+    
+  </tbody>
+</table>
+
+
 @endsection

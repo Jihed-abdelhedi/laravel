@@ -7,7 +7,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Titre</th>
-        
+        <th scope="col">Categorie</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -18,8 +18,9 @@
       <tr>
         <th scope="row">{{ $livre->id }}</th>
         <td>{{ $livre->titre }}</td>
-       
+        <td>{{ $livre->category->nom_categorie }}</td>
         <td><a href="{{ route('afficher_livre',$livre->id) }}" class="btn btn-primary">Voir</a></td>
+        <td><a href="{{ route('editer_livre',$livre->id) }}" class="btn btn-warning">Editer</a></td>
         <td><a href="{{ route('supprimer_livre',$livre->id) }}" class="btn btn-danger">Supprimer</a></td>
       </tr>
       

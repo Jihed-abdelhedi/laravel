@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class CategorieController extends Controller
 {
     public function ajouterCategorie(){
-        return view('pages.ajouter_categorie');
+        $categories=Category::orderBy('id','DESC')->get();
+        return view('pages.ajouter_categorie',compact('categories'));
     }
     public function postAjouterCategorie(Request $request){
 

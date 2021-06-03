@@ -88,6 +88,6 @@ return array(
     |
     */
 
-    'attributes' => array(),
+    'attributes' => array(['category_id'=>'Categorie']),
 
 );

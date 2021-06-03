@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Livre extends Model
 {
-    protected $guarded =['category_id'];
+    protected $guarded =[];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
     use HasFactory;
 }
