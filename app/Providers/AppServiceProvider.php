@@ -34,8 +34,9 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         View::share([
             'application_name' => 'APP Livre',
-            'categories'=>Category::all(),
+            //'categories'=>Category::all(),
            // 'livres'=>Livre::all()
+           'categories'=>Category::with('livres')->get()
 
             ]);
     }

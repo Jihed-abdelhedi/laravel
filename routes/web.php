@@ -20,4 +20,5 @@ Route::post('/editer_livre/{id}',[LivreController::class,'postEditerLivre'])->na
 //categorie
 Route::get('/ajouter_categorie',[CategorieController::class,'ajouterCategorie'])->name('ajouter_categorie');
 Route::post('/ajouter_categorie',[CategorieController::class,'postAjouterCategorie'])->name('post_ajouter_categorie');
+Route::get('/afficher_categorie/{id}',[CategorieController::class,'afficherCategorie'])->name('afficher_categorie');
 

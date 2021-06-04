@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Livre;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -18,6 +19,12 @@ class CategorieController extends Controller
 
          Category::create($request->all());
          return back()->with('success','Votre Categorie a été inseré');
+    }
+    public function afficherCategorie($id){
+      $cat = Category::find($id);
+        
+        //dd($cat);
+        return view('pages.afficher_categorie',compact('cat'));
     }
  
 }

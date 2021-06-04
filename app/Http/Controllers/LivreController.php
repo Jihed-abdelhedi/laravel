@@ -35,6 +35,7 @@ class LivreController extends Controller
 
         //dd($livre);
         //DebugBar::debug('bonjour');
+        
 
         //dd($livre->category->nom_categorie);
         return view('pages.afficher_livre',compact('livre'));

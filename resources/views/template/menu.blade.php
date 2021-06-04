@@ -1,5 +1,5 @@
 <?php
-use App\Models\Livre;
+// use App\Models\Livre;
 ?>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="{{ route('acceuil') }}">{{ $application_name }}</a>
@@ -16,9 +16,9 @@ use App\Models\Livre;
           <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             @foreach ($categories as $cat )
-            <a class="dropdown-item" href=""> {{ $cat->nom_categorie }} ({{ Livre::where('category_id',$cat->id)->count() }})</a>
+            <a class="dropdown-item" href="{{ route('afficher_categorie',$cat->id)}}"> {{ $cat->nom_categorie }} ({{ count($cat->livres) }})</a>
             @endforeach
-           
+            {{-- $cat->livres()->count() --}}
 
           </div>
         </li>
